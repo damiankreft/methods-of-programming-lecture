@@ -4,6 +4,7 @@ import com.example.mprlecture5gradle.domain.Person;
 import com.example.mprlecture5gradle.service.PersonManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class PersonController {
     }
 
     @PostMapping("/api/person")
-    public Person addPerson(Person person) {
+    public Person addPerson(@RequestBody Person person) {
         return personManagerService.addPerson(person);
     }
 
