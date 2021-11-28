@@ -9,6 +9,6 @@ public interface PersonManager {
     List<Person> getAllPersons();
     boolean deletePerson(String id);
     Person findById(String id);
-    
+
     // TODO Add updatePerson() business method
 }
