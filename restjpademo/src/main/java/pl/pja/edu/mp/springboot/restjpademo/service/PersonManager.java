@@ -1,6 +1,5 @@
 package pl.pja.edu.mp.springboot.restjpademo.service;
 
-import org.springframework.stereotype.Service;
 import pl.pja.edu.mp.springboot.restjpademo.domain.Person;
 
 import java.util.List;
