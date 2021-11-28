@@ -28,9 +28,10 @@ public class InMemoryPersonManager implements PersonManager{
     @Override
     public boolean deletePerson(String id) {
         Optional<Person> personToDelete = null;
-        personToDelete = db.stream().findFirst().filter(p -> p.getId() == id);
+
+        personToDelete = db.stream().filter(p -> p.getId().equals(id)).findFirst();
         if (personToDelete.isPresent()) {
-            db.remove(personToDelete);
+            db.remove(personToDelete.get());
             return true;
         }
 
