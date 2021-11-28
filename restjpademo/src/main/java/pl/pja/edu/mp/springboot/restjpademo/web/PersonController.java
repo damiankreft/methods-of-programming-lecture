@@ -1,9 +1,6 @@
 package pl.pja.edu.mp.springboot.restjpademo.web;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pja.edu.mp.springboot.restjpademo.domain.Person;
 import pl.pja.edu.mp.springboot.restjpademo.service.PersonManager;
 
@@ -26,6 +23,11 @@ public class PersonController {
     @GetMapping("api/person")
     List<Person> getAll() {
         return personManager.getAllPersons();
+    }
+
+    @DeleteMapping("api/person/{id}")
+    void deletePerson(@PathVariable("id") String id) {
+        personManager.deletePerson(id);
     }
 
     @GetMapping("api/hello")
