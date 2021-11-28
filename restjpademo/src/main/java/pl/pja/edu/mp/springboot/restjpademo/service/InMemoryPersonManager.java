@@ -1,5 +1,6 @@
 package pl.pja.edu.mp.springboot.restjpademo.service;
 
+import org.springframework.stereotype.Service;
 import pl.pja.edu.mp.springboot.restjpademo.domain.Person;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class InMemoryPersonManager implements PersonManager{
     // temporary stub
     private List<Person> db = new ArrayList<>();
