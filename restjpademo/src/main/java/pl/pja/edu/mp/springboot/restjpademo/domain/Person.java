@@ -1,14 +1,18 @@
 package pl.pja.edu.mp.springboot.restjpademo.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Person {
-
-    private String id;
+    private Long id;
     private String firstName;
     private int yob; // year of birth
 
-    public Person(String id, String firstName, int yob) {
+    public Person(Long id, String firstName, int yob) {
         this.id = id;
         this.firstName = firstName;
         this.yob = yob;
@@ -21,11 +25,13 @@ public class Person {
 
     public Person() { }
 
-    public String getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,27 +49,5 @@ public class Person {
 
     public void setYob(int yob) {
         this.yob = yob;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", yob=" + yob +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return yob == person.yob && Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, yob);
     }
 }
